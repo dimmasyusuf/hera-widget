@@ -50,7 +50,7 @@ export const getAttributeElement = (): Result => {
   return {
     token:
       ds.token ||
-      "U2FsdGVkX18nUhS17FAcEn59whwNBPPybPib29otAye0IpEjORYZqNgfnczOL51V4zUU1m8XBgU9lTIxmz-_OP_bKfmqpDGThSSPggSf-Dh1OyI4_QcVDMcHDqGnMKzV2q1eFunaKLbtLqpHwbBMtw",
+      "U2FsdGVkX1-FFCtRxH42F_ptifYNida-wWmF6cOD7JL4KTuyqEdKJb2j4JQIdIgdh7BE7hwbqeqkS_wwm1BNkinopSXBfl1OxLmpCEg-txzdqwI3ldWrgpAI3e-HNPrsHapbBqQhqwwnCEUPlXdZpQ",
     fullscreen: ds.fullscreen === "true",
     hideHeader: ds.hideHeader === "true",
     hideEmailForm: ds.hideEmailForm === "true",
