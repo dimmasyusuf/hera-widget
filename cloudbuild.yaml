@@ -1,0 +1,32 @@
+steps:
+- name: node:18.16.0
+  entrypoint: 'yarn'
+  id: install-dependencies
+  args: ['install']
+  dir: './widget'
+  
+- name: 'gcr.io/cloud-builders/yarn'
+  id: build-widget
+  waitFor: ['install-dependencies']
+  args: ['build']
+  dir: './widget'
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  id: list-directory
+  args:
+    - '-c'
+    - 'ls -al ./widget/dist'
+
+- name: gcr.io/cloud-builders/gsutil
+  args:
+    - '-h'
+    - 'Cache-Control: no-cache, no-store, must-revalidate, max-age=0'
+    - cp
+    - './widget/dist/widget.js'
+    - 'gs://flai/'
+
+options:
+ machineType: 'E2_HIGHCPU_8'
+
+timeout: 2000s
